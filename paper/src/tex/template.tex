@@ -1,0 +1,29 @@
+% define the main template style for the document
+\documentclass{elsarticle}
+
+% redefine the page geometry to something more standard
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+% Import general packages
+\usepackage{
+  hyperref,
+  amsmath, amssymb, amsfonts, pifont,
+  algorithmic, textcomp, listings,
+  graphicx, subfig,
+  booktabs, longtable, tikz, multirow,
+  acronym, verbatim
+}
+% force figures to show in the section they are defined in
+\usepackage[section]{placeins}
+\usetikzlibrary{positioning}
+\usepackage[flushleft]{threeparttable}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\code}[1]{\texttt{#1}}
+% setup \tightlist (missing from Pandoc since we use this custom template)
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+$body$
+\end{document}

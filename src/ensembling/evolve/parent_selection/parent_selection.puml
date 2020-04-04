@@ -1,0 +1,30 @@
+@startuml
+
+' an abstract base class for parent selection from a population
+abstract class ParentSelector {
+  + size: Int
+  + replace: Bool
+  + {abstract} select(population: List, maximize: Bool): List
+}
+ParentSelector <|-- LinearRankParentSelector
+ParentSelector <|--- TournamentParentSelector
+ParentSelector <|-- ProportionateParentSelector
+
+' a parent selector using proportionate selection approach
+class ProportionateParentSelector {
+  + select(population: List, maximize: Bool): List
+}
+
+' a parent selector using linear rank selection approach
+class LinearRankParentSelector {
+  + select(population: List, maximize: Bool): List
+}
+
+' a parent selector using tournament selection approah
+class TournamentParentSelector {
+  + individuals_per_tournament: Int
+  - select_finalists(population: List, maximize: Bool): List
+  + select(population: List, maximize: Bool): List
+}
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+
+' an abstract base procreator
+abstract class Mutator {
+  + mutation_rate: Float
+  + {abstract} mutate(individual: Chromosome, inplace: Bool): Chromosome
+}
+Mutator <|-- BinaryMutator
+Mutator <|-- RealCodedMutator
+
+' a binary mutation procreator
+class BinaryMutator {
+  + mutate(individual: Chromosome, inplace: Bool): Chromosome
+}
+
+' a real coded mutation procreator
+class RealCodedMutator {
+  ' the min, max tuple representing the range of random number selection
+  + range: {Float, Float}
+  + mutate(individual: Chromosome, inplace: Bool): Chromosome
+}
+
+@enduml

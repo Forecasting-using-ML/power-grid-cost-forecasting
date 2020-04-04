@@ -1,0 +1,8 @@
+keras
+livelossplot
+matplotlib
+numpy
+pandas
+sklearn
+tensorflow-gpu
+tqdm

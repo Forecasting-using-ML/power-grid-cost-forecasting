@@ -1,0 +1,22 @@
+@startuml
+
+' an abstract base class for survivor selection from a population
+abstract class SurvivorSelector {
+  + {abstract} select(population: List, parents: List, children: List): List
+}
+SurvivorSelector <|-- GenerationarlSurvivorSelector
+SurvivorSelector <|-- SteadyStateSurvivorSelector
+
+' a class for generational survivor selection
+class GenerationarlSurvivorSelector {
+  + select(population: List, parents: List, children: List): List
+}
+
+' a class for steady state survivor selection
+class SteadyStateSurvivorSelector {
+  ' the number of individuals to replace
+  + size: Int
+  + select(population: List, parents: List, children: List): List
+}
+
+@enduml

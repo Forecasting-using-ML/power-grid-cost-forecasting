@@ -1,0 +1,48 @@
+@startuml
+
+' a class for generating populations of chromosomes
+class ChromosomeFactory {
+  ' the kind of chromosome objects to generate
+  + chromosome_class: Chromosome.Type
+  ' the size of the chromosome to generate
+  + chromosome_size: Integer
+  ' the initialization state for the chromosome
+  + initial_state: InitializationState
+  ' the evaluation function for the chromosomes
+  + evaluate: Callable
+  ' build and return the next generated object
+  + next_individual(): Chromosome
+  ' build and return a population of individuals
+  + population(): List
+}
+
+' an abstract class representing a Chromosome
+abstract class Chromosome {
+  ' the number of genes in the chromosome
+  + size: Int
+  ' the evaluation metric for the chromosome
+  - evaluate: Method
+  ' return the fitness of the chromosome
+  + get_fitness(): Float
+}
+Chromosome <|-- BinaryChromosome
+Chromosome <|-- RealCodedChromosome
+
+' the different initialization states for a binary chromosome
+enum InitializationState {
+  zeros
+  ones
+  random
+}
+
+' a class representing a binary chromosome
+class BinaryChromosome {
+  + initial_state: InitializationState
+}
+
+' a class representing a real coded chromosome
+class RealCodedChromosome {
+ + initial_state: InitializationState
+}
+
+@enduml

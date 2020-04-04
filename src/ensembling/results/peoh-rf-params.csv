@@ -1,0 +1,8 @@
+bootstrap,False
+max_depth,100
+max_features,
+max_leaf_nodes,
+min_impurity_decrease,0
+min_samples_leaf,2
+min_samples_split,10
+n_estimators,23

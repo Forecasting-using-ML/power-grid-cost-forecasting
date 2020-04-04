@@ -1,0 +1,15 @@
+sudo: required
+language: python
+python:
+- 3.5
+notifications:
+  email: false
+  slack: gridcostforecasting:vinzMRFHpfISGymxfgMxKYKf
+before_install:
+- make -C paper install
+- make -C diagrams install
+script:
+- make -C paper
+- make -C paper find_todo_md
+- make -C paper find_todo_lit
+- make -C paper count_words

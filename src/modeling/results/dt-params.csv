@@ -1,0 +1,6 @@
+max_depth,60.0
+max_features,
+max_leaf_nodes,100.0
+min_impurity_decrease,0.01
+min_samples_leaf,2.0
+min_samples_split,8.0

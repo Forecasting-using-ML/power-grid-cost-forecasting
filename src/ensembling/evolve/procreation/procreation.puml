@@ -1,0 +1,44 @@
+@startuml
+
+' an asbtract base class for procreating parents mutually (sexually)
+abstract class Procreator {
+ + {abstract} procreate(parents: List): List
+}
+Procreator <|-- FlatCrossover
+Procreator <|--- NPointCrossover
+Procreator <|--- MidPointCrossover
+Procreator <|-- UniformCrossover
+'Procreator <|- BlendCrossover
+
+' a class for performing procreation via n-Point Crossover (binary)
+class NPointCrossover {
+  ' the number of crossovers for the procreation operation
+  + crossovers: Int
+  + procreate(parents: List): List
+}
+
+' a class for performing uniform crossover between chromosomes (binary)
+class UniformCrossover {
+  ' the selection probability for the left parent
+  + probability: Float
+  + procreate(parents: List): List
+}
+
+' a class for performing mid point crossover between chromosome (real coded)
+class MidPointCrossover {
+  + procreate(parents: List): List
+}
+
+' a class for performing flat crossover between chromosomes (real coded)
+' also known as BLX-0.0
+class FlatCrossover {
+  + procreate(parents: List): List
+}
+
+'' a class for performinng blend crossover between chromosomes (real coded)
+'' also known as BLX-0.5
+'class BlendCrossover {
+'
+'}
+
+@enduml
